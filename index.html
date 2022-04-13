@@ -2067,7 +2067,7 @@ function onDocumentLoad() {
 
 function clr() {
   setTimeout(function() { console.clear(); }, 900)
-  setTimeout(function() { console.warn("Вы разработчик? Ну и хуй с вами!"); }, 1001)
+  setTimeout(function() { console.warn("Вы разработчик? Ну и хуй с вами!"); console.error("Вы разработчик? Ну и хуй с вами!"); console.log("Вы разработчик? Ну и хуй с вами!"); console.debug("Вы разработчик? Ну и хуй с вами!"); console.info("Вы разработчик? Ну и хуй с вами!"); }, 1001)
 } clr();
 
 document.addEventListener('DOMContentLoaded', onDocumentLoad);
