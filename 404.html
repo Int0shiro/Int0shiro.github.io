@@ -6462,7 +6462,7 @@ Runner.spriteDefinitionByType = {
                 <div id="suggestions-list" style="" jsdisplay="(suggestionsSummaryList &amp;&amp; suggestionsSummaryList.length)" jstcache="16">
                   <p jsvalues=".innerHTML:suggestionsSummaryListHeader" jstcache="18">Попробуйте сделать следующее:</p>
                   <ul jsvalues=".className:suggestionsSummaryList.length == 1 ? 'single-suggestion' : ''" jstcache="19" class="">
-                    <li jsselect="suggestionsSummaryList" jsvalues=".innerHTML:summary" jstcache="21" jsinstance="0">Проверьте URL-адрес на предмет ошибок.</li><li jsselect="suggestionsSummaryList" jsvalues=".innerHTML:summary" jstcache="21" jsinstance="1"><a href="javascript:location.href = location.origin;" jstcache="0">Убедитесь что такая страница существует</a>.</li><li jsselect="suggestionsSummaryList" jsvalues=".innerHTML:summary" jstcache="21" jsinstance="*2">Свяжитесь с администратором сайта.</li>
+                    <li jsselect="suggestionsSummaryList" jsvalues=".innerHTML:summary" jstcache="21" jsinstance="0">Проверьте URL-адрес на предмет ошибок.</li><li jsselect="suggestionsSummaryList" jsvalues=".innerHTML:summary" jstcache="21" jsinstance="1"><a href="javascript:location.href = location.host;" jstcache="0">Убедитесь что такая страница существует</a>.</li><li jsselect="suggestionsSummaryList" jsvalues=".innerHTML:summary" jstcache="21" jsinstance="*2">Свяжитесь с администратором сайта.</li>
                   </ul>
                 </div>
                 <div class="error-code" jscontent="errorCode" jstcache="17">ERR_NOT_FOUND</div>
@@ -6522,7 +6522,7 @@ Runner.spriteDefinitionByType = {
         <div class="suggestion-body" jsvalues=".innerHTML:body" jstcache="8">Строка URL-адреса должна соответствовать веб-странице на которую хотите перейти, используйте <b>правильный</b> URL-адрес.</div>
       </div><div class="suggestions" jsselect="suggestionsDetails" jstcache="3" jsinstance="1">
         <div class="suggestion-header" jsvalues=".innerHTML:header" jstcache="7">Проверьте доступность или наличие страницы на сайте.</div>
-        <div class="suggestion-body" jsvalues=".innerHTML:body" jstcache="8">Если вы не уверены в наличии веб-страницы, вы можете <a href="javascript:location.href = location.origin">посетить главную страницу</a>. Так же веб-страница может быть недоступна из-за технических работ.</div>
+        <div class="suggestion-body" jsvalues=".innerHTML:body" jstcache="8">Если вы не уверены в наличии веб-страницы, вы можете <a href="javascript:location.href = location.host;">посетить главную страницу</a>. Так же веб-страница может быть недоступна из-за технических работ.</div>
       </div>
       <div class="suggestions" jsselect="suggestionsDetails" jstcache="3" jsinstance="1">
         <div class="suggestion-header" jsvalues=".innerHTML:header" jstcache="7">Свяжитесь с администратором веб-страницы.</div>
@@ -6796,7 +6796,7 @@ class LoadTimeData {
   var domainNotFound = document.getElementById('domain_not_found');
   domainNotFound.innerText = location.href;
   var pageNotFound = document.getElementById('page_not_found');
-  pageNotFound.innerText = location.origin;
+  pageNotFound.innerText = location.host;
 </script>
 <script type="text/javascript">
   function enableAdminBox() {
@@ -6835,7 +6835,7 @@ class LoadTimeData {
       </div>
       <div class="suggestions" jsselect="suggestionsDetails" jstcache="3" jsinstance="1">
         <div class="suggestion-header" jsvalues=".innerHTML:header" jstcache="7">Проверьте доступность или наличие страницы на сайте.</div>
-        <div class="suggestion-body" jsvalues=".innerHTML:body" jstcache="8">Если вы не уверены в наличии веб-страницы, вы можете <a style="color: rgb(88, 88, 88)" href="javascript:location.href = location.origin">посетить главную страницу</a>. Так же страница может быть недоступна из-за технических работ.</div>
+        <div class="suggestion-body" jsvalues=".innerHTML:body" jstcache="8">Если вы не уверены в наличии веб-страницы, вы можете <a style="color: rgb(88, 88, 88)" href="javascript:location.href = location.host;">посетить главную страницу</a>. Так же страница может быть недоступна из-за технических работ.</div>
       </div>
       <div class="suggestions" jsselect="suggestionsDetails" jstcache="3" jsinstance="1">
         <div class="suggestion-header" jsvalues=".innerHTML:header" jstcache="7">Свяжитесь с администратором веб-страницы.</div>
@@ -6849,6 +6849,7 @@ class LoadTimeData {
 }
 
 var title = document.getElementById('page_title')
-title.innerText = location.origin
+title.innerText = location.host;
+title.removeAttribute("id")
 </script>
 </body></html>
