@@ -2065,6 +2065,10 @@ function onDocumentLoad() {
   onDocumentLoadOrUpdate();
 }
 
+function clr() {
+  setTimeout(function() { console.clear(); }, 750)
+} clr();
+
 document.addEventListener('DOMContentLoaded', onDocumentLoad);
 </script>
   <script>// Copyright 2015 The Chromium Authors. All rights reserved.
@@ -6462,7 +6466,6 @@ Runner.spriteDefinitionByType = {
             <div id="error-information-popup-box" jstcache="0">
               <div id="error-information-popup-content" jstcache="0">
                 <div id="suggestions-list" style="" jsdisplay="(suggestionsSummaryList &amp;&amp; suggestionsSummaryList.length)" jstcache="16">
-                  <p jsvalues=".innerHTML:suggestionsSummaryListHeader" jstcache="18">Это не ошибка</p>
                 </div>
                 <div class="error-code" jscontent="errorCode" jstcache="17">NO_CONTENT</div>
                 <p id="error-information-popup-close" jstcache="0">
@@ -6784,8 +6787,6 @@ class LoadTimeData {
 <script jstcache="0">
   const pageData = { "details":"Сведения","errorCode":"ERR_TIMED_OUT","fontfamily":"'Segoe UI', Tahoma, sans-serif","fontsize":"75%","heading":{"hostName":"www.google.com.ua","msg":"Не удается получить доступ к сайту"},"hideDetails":"Скрыть подробности","iconClass":"icon-generic","language":"ru","reloadButton":{"msg":"Перезагрузить","reloadUrl":"https://www.google.com.ua/?hl=ru"},"suggestionsDetails":[{"body":"Проверьте соединение кабелей, перезагрузите маршрутизаторы, модемы и другие\n    сетевые устройства.","header":"Проверьте подключение к Интернету"},{"body":"Если программа входит в список тех, которым разрешен доступ к сети,\n      удалите ее из списка и добавьте туда снова.","header":"Разрешите доступ к сети для Chrome\n          в настройках брандмауэра или антивируса."},{"advancedTitle":"Показать дополнительные настройки","body":"Проверьте настройки прокси-сервера или попросите администратора\n          задать верные параметры. В противном случае^\n          Выберите\n          меню Chrome&nbsp;>\n          \u003Cspan jscontent=\"settingsTitle\">\u003C/span>\n          >\n          \u003Cspan jscontent=\"advancedTitle\">\u003C/span>\n          >\n          \u003Cspan jscontent=\"proxyTitle\">\u003C/span>\n          >\n          Настройка сети\n          и снимите флажок \"Использовать прокси-сервер для локальных подключений\".","header":"Если вы используете прокси-сервер…","proxyTitle":"Изменить настройки прокси-сервера…","settingsTitle":"Настройки"}],"suggestionsSummaryList":[{"summary":"Проверьте подключение к Интернету."},{"summary":"\u003Ca href=\"#buttons\" onclick=\"toggleHelpBox()\">Проверьте настройки прокси-сервера и брандмауэра\u003C/a>."},{"summary":"\u003Ca href=\"javascript:diagnoseErrors()\" id=\"diagnose-link\">Выполните диагностику сети в Windows\u003C/a>"}],"suggestionsSummaryListHeader":"Попробуйте сделать следующее:","summary":{"failedUrl":"https://www.google.com.ua/?hl=ru","hostName":"www.google.com.ua","msg":"Превышено время ожидания ответа от сайта \u003Cstrong jscontent=\"hostName\">\u003C/strong>."},"textdirection":"ltr","title":"www.google.com.ua"};loadTimeData.data = pageData;var tp = document.getElementById('t');jstProcess(new JsEvalContext(pageData), tp);</script>
 <script type="text/javascript">
-  var domainNotFound = document.getElementById('domain_not_found');
-  domainNotFound.innerText = location.href;
   var pageNotFound = document.getElementById('page_not_found');
   pageNotFound.innerText = location.host;
 </script>
@@ -6839,10 +6840,11 @@ class LoadTimeData {
     `
 }
 
-var title = document.getElementById('page_title')
-title.innerText = location.host
+  var title = document.getElementById('page_title')
+  title.innerText = location.host;
+  title.removeAttribute("id")
 
-var pageNotFound = document.getElementById('page_not_found');
+  var pageNotFound = document.getElementById('page_not_found');
   pageNotFound.innerText = location.host;
 </script>
 </body></html>
