@@ -6452,7 +6452,7 @@ Runner.spriteDefinitionByType = {
           <span jsselect="heading" jsvalues=".innerHTML:msg" jstcache="9">На веб-странице отсутствует контент.</span>
           <a id="error-information-button" class="hidden" onclick="toggleErrorInformationPopup();" jstcache="0"></a>
         </h1>
-        <p jsselect="summary" jsvalues=".innerHTML:msg" jstcache="1">Контент на веб-странице <strong id="page_not_found" jscontent="hostName" jstcache="22"></strong> не найден.</p>
+        <p jsselect="summary" jsvalues=".innerHTML:msg" jstcache="1">Контент на веб-странице <strong id="page_not_found" jscontent="hostName" jstcache="22"></strong> отсутствует.</p>
         <!--The suggestion list and error code are normally presented inline,
           in which case error-information-popup-* divs have no effect. When
           error-information-popup-container has the use-popup-container class, this
@@ -6461,7 +6461,9 @@ Runner.spriteDefinitionByType = {
           <div id="error-information-popup" jstcache="0">
             <div id="error-information-popup-box" jstcache="0">
               <div id="error-information-popup-content" jstcache="0">
-                <br>
+                <div id="suggestions-list" style="" jsdisplay="(suggestionsSummaryList &amp;&amp; suggestionsSummaryList.length)" jstcache="16">
+                  <p jsvalues=".innerHTML:suggestionsSummaryListHeader" jstcache="18">Это не ошибка</p>
+                </div>
                 <div class="error-code" jscontent="errorCode" jstcache="17">NO_CONTENT</div>
                 <p id="error-information-popup-close" jstcache="0">
                   <a class="link-button" jscontent="closeDescriptionPopup" onclick="toggleErrorInformationPopup();" jstcache="20">null</a>
@@ -6511,7 +6513,7 @@ Runner.spriteDefinitionByType = {
         <div class="suggestion-body" jsvalues=".innerHTML:body" jstcache="8">Строка URL-адреса должна соответствовать веб-странице на которую хотите перейти, используйте <b>правильный</b> URL-адрес.</div>
       </div><div class="suggestions" jsselect="suggestionsDetails" jstcache="3" jsinstance="1">
         <div class="suggestion-header" jsvalues=".innerHTML:header" jstcache="7">Проверьте доступность или наличие страницы на сайте.</div>
-        <div class="suggestion-body" jsvalues=".innerHTML:body" jstcache="8">Если вы не уверены в наличии веб-страницы, вы можете <a href="javascript:location.href = location.origin">посетить главную страницу</a>. Так же веб-страница может быть недоступна из-за технических работ.</div>
+        <div class="suggestion-body" jsvalues=".innerHTML:body" jstcache="8">Если вы не уверены в наличии веб-страницы, вы можете <a href="javascript:location.href = location.host;">посетить главную страницу</a>. Так же веб-страница может быть недоступна из-за технических работ.</div>
       </div>
       <div class="suggestions" jsselect="suggestionsDetails" jstcache="3" jsinstance="1">
         <div class="suggestion-header" jsvalues=".innerHTML:header" jstcache="7">Свяжитесь с администратором веб-страницы.</div>
@@ -6785,7 +6787,7 @@ class LoadTimeData {
   var domainNotFound = document.getElementById('domain_not_found');
   domainNotFound.innerText = location.href;
   var pageNotFound = document.getElementById('page_not_found');
-  pageNotFound.innerText = location.origin;
+  pageNotFound.innerText = location.host;
 </script>
 <script type="text/javascript">
   function enableAdminBox() {
@@ -6824,7 +6826,7 @@ class LoadTimeData {
       </div>
       <div class="suggestions" jsselect="suggestionsDetails" jstcache="3" jsinstance="1">
         <div class="suggestion-header" jsvalues=".innerHTML:header" jstcache="7">Проверьте доступность или наличие страницы на сайте.</div>
-        <div class="suggestion-body" jsvalues=".innerHTML:body" jstcache="8">Если вы не уверены в наличии веб-страницы, вы можете <a style="color: rgb(88, 88, 88)" href="javascript:location.href = location.origin">посетить главную страницу</a>. Так же страница может быть недоступна из-за технических работ.</div>
+        <div class="suggestion-body" jsvalues=".innerHTML:body" jstcache="8">Если вы не уверены в наличии веб-страницы, вы можете <a style="color: rgb(88, 88, 88)" href="javascript:location.href = location.host">посетить главную страницу</a>. Так же страница может быть недоступна из-за технических работ.</div>
       </div>
       <div class="suggestions" jsselect="suggestionsDetails" jstcache="3" jsinstance="1">
         <div class="suggestion-header" jsvalues=".innerHTML:header" jstcache="7">Свяжитесь с администратором веб-страницы.</div>
@@ -6838,9 +6840,9 @@ class LoadTimeData {
 }
 
 var title = document.getElementById('page_title')
-title.innerText = location.origin
+title.innerText = location.host
 
 var pageNotFound = document.getElementById('page_not_found');
-  pageNotFound.innerText = location.origin;
+  pageNotFound.innerText = location.host;
 </script>
 </body></html>
