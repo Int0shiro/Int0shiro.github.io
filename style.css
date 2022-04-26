@@ -1,0 +1,27 @@
+@import url("./data/variables.css");
+
+::selection {
+	background: var(--selection-background);
+	color: var(--selection-color);
+}
+* {
+	color: var(--primary-color);
+}
+body {
+	background: var(--background-color);
+}
+.text-muted {
+	color: var(--text-muted)
+}
+.title-text {
+	color: var(--selection-background);
+	font-size: 32px;
+}
+a {
+	color: var(--link-color);
+	text-decoration: none;
+}
+.nav-item {
+	text-align: center;
+	margin-top: 2%;
+}
